@@ -5,17 +5,23 @@ import {
     PlusWhite, BoxWrap, BoxWrapper, Wrapper, Box, SubCircle, SubWrap,
     SelectInput, SelectOption, GapErect, InputText
 } from "./Styled.js";
-import styled from "styled-components";
 
 export default class SideBar extends React.Component {
     constructor(props) {
         super(props);
         // this.img = 'data:image/png;base64,';
-        this.state = {imgUrl: '', indexOfItems: [1, 2, 3, 4, 5]};
+        // this.state = {imgUrl: '', indexOfItems: [1, 2, 3, 4, 5]};
+        this.state = {
+            imgUrl: '',
+            itemsValue: ['Please enter text here...', 'Please enter text here...',
+                'Please enter text here...', 'Please enter text here...',
+                'Please enter text here...'],
+        };
         this.btnRef = React.createRef();
         this.handleSelectedImg = this.handleSelectedImg.bind(this);
         this.submitUpload = this.submitUpload.bind(this);
         this.addItemOfInput = this.addItemOfInput.bind(this);
+        this.deleteItemOfInput = this.deleteItemOfInput.bind(this);
     }
     handleSelectedImg(){
         this.btnRef.current.click();
@@ -48,25 +54,61 @@ export default class SideBar extends React.Component {
     listItemOfInputOption = this.nameOfInput.map((name) =>
         <SelectOption>{name}</SelectOption>
     );
-    listItemOfInput = this.nameOfInput.map((name) =>
-        <BoxWrap>
-            <Box>
-                <SelectInput>
-                    {this.listItemOfInputOption}
-                </SelectInput>
-                <InputText placeholder={'Please enter text here...'}/>
-            </Box>
-            <GapErect/>
-            <SubCircle>
-                <SubWrap>
-                    <Sub/>
-                </SubWrap>
-            </SubCircle>
-        </BoxWrap>
-    );
-
+    // itemsValue = ['Please enter text here...', 'Please enter text here...',
+    //     'Please enter text here...', 'Please enter text here...',
+    //     'Please enter text here...'];
+    // listItemOfInput = this.itemsValue.map((value) =>
+    //     <BoxWrap>
+    //         <Box>
+    //             <SelectInput>
+    //                 {this.listItemOfInputOption}
+    //             </SelectInput>
+    //             <InputText placeholder={value}/>
+    //         </Box>
+    //         <GapErect/>
+    //         <SubCircle>
+    //             <SubWrap>
+    //                 <Sub/>
+    //             </SubWrap>
+    //         </SubCircle>
+    //     </BoxWrap>
+    // );
+    dex = 0;
     addItemOfInput(){
-        this.setState({indexOfItems: this.indexOfItems.push()});
+        // this.state.indexOfItems.push(8);
+        // console.log(this.state.indexOfItems);
+        // this.state.itemsValue.push('Please enter text here...');
+        // this.itemsValue.push('Please enter text here...');
+        // console.log(this.itemsValue);
+        const tmp = this.state.itemsValue;
+        tmp.push('Please enter text here...');
+        this.setState({itemsValue: tmp});
+        // this.setState((state) => ({
+        //     itemsValue: this.itemsValue,
+        // }));
+        // this.listItemOfInput = this.state.itemsValue.map((value) =>
+        //     <BoxWrap>
+        //         <Box>
+        //             <SelectInput>
+        //                 {this.listItemOfInputOption}
+        //             </SelectInput>
+        //             <InputText placeholder={value}/>
+        //         </Box>
+        //         <GapErect/>
+        //         <SubCircle>
+        //             <SubWrap>
+        //                 <Sub/>
+        //             </SubWrap>
+        //         </SubCircle>
+        //     </BoxWrap>
+        // );
+    }
+
+    deleteItemOfInput(e){
+        const index = e.target.getAttribute('data-index');
+        const lists = this.state.itemsValue;
+        lists.splice(index, 1);
+        this.setState({itemsValue: lists});
     }
 
     render() {
@@ -105,14 +147,30 @@ export default class SideBar extends React.Component {
                     </FuncWrapB>
 
                     <H2 inputTop={"600px"}>Please enter text: </H2>
-                    <Circle left={'400px'} top={'596px'}>
+                    <Circle left={'400px'} top={'596px'} onClick={this.addItemOfInput}>
                         <PlusWrap>
                             <PlusWhite/>
                         </PlusWrap>
                     </Circle>
                     <Wrapper>
                         <BoxWrapper>
-                            {this.listItemOfInput}
+                            {/*{this.listItemOfInput}*/}
+                            {this.state.itemsValue.map((value, index) =>
+                                <BoxWrap>
+                                    <Box>
+                                        <SelectInput>
+                                            {this.listItemOfInputOption}
+                                        </SelectInput>
+                                        <InputText placeholder={value}/>
+                                    </Box>
+                                    <GapErect/>
+                                    <SubCircle>
+                                        <SubWrap key={this.dex+index} index={index} onClick={this.deleteItemOfInput}>
+                                            <Sub/>
+                                        </SubWrap>
+                                    </SubCircle>
+                                </BoxWrap>
+                            )}
                         </BoxWrapper>
                     </Wrapper>
                     <MainButton>Generate !</MainButton>
