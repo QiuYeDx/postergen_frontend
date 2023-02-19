@@ -30,7 +30,6 @@ export const Wrap = styled.div`
 `
 
 export const H1 = styled.div`
-    display: block;
     line-height: 120px;
     font-size: 88px;
     font-weight: 600;
@@ -44,7 +43,6 @@ export const H1 = styled.div`
 `
 
 export const Text = styled.div`
-    display: block;
     line-height: 30px;
     font-size: 24px;
     font-weight: 300;

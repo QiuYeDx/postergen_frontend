@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrap = styled.div`
     width: 100%;
     min-width: 850px;
-    height: 150px;
+    height: 130px;
     position: absolute;
     z-index: 1000;
     top: 0;

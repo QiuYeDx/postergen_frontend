@@ -1,5 +1,6 @@
 import React from 'react';
 import TopBar from "../../components/TopBar/TopBar";
+import SideBar from "../../components/SideBar/SideBar";
 import {Container} from "./Styled.js";
 
 export default class Work extends React.Component {
@@ -12,7 +13,7 @@ export default class Work extends React.Component {
             <div>
                 <TopBar inputColor={"#fff"}/>
                 <Container>
-
+                    <SideBar/>
                 </Container>
             </div>
         )
