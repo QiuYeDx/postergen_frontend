@@ -49,6 +49,14 @@ export const UpLoad = styled.div`
   cursor: pointer;
 `
 
+export const UpLoadedImg = styled.img`
+  position: absolute;
+  top: 220px;
+  left: 186px;
+  min-width: 100px;
+  height: 100px;
+`
+
 export const PlusWrap = styled.div`
   position: absolute;
   width: 20px;
