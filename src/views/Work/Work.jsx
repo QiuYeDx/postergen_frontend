@@ -1,4 +1,6 @@
 import React from 'react';
+import TopBar from "../../components/TopBar/TopBar";
+import {Container} from "./Styled.js";
 
 export default class Work extends React.Component {
     constructor(props) {
@@ -8,7 +10,10 @@ export default class Work extends React.Component {
     render() {
         return (
             <div>
-                <a href='#/'>Go back home</a>
+                <TopBar inputColor={"#fff"}/>
+                <Container>
+
+                </Container>
             </div>
         )
     }

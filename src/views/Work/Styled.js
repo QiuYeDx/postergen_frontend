@@ -1,0 +1,14 @@
+import styled from "styled-components"
+
+export const Container = styled.div`
+  padding-top: 150px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+  min-width: 850px;
+  min-height: 920px;
+  position: absolute;
+  z-index: 1;
+  overflow-x: hidden;
+`
