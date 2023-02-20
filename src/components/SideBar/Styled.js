@@ -85,7 +85,6 @@ export const PlusWhite = styled.div`
 export const SelectButton = styled.div`
   width: 120px;
   height: 33px;
-  background: #F7F7F7;
   border: 1px solid #1F1A14;
   border-radius: 10px;
   padding-top: 2px;
@@ -96,17 +95,19 @@ export const SelectButton = styled.div`
   overflow: hidden;
   cursor: pointer;
   user-select: none;
-  color: ${props => props.color || 'currentColor'};
-  background-color: ${props => props.backgroundColor || '#f6f6f6'};
+  color: ${props => props.isSelected ? '#f6f6f6' : 'currentColor'};
+  background-color: ${props => props.isSelected ? '#1F1A14' : '#f6f6f6'};
+  transition: all 0.3s ease;
   :hover {
-    transition: all 0.15s;
-    opacity: 0.6;
-    //box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.3);
+    //transition: all 0.15s;
+    //opacity: 0.6;
+    transform: translateY(-2px);
+    box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.1);
   }
   :active {
-    transition: all 0.08s;
-    opacity: 0.8;
-    //box-shadow: 0.5px 0.5px 4px 0.5px rgba(0, 0, 0, 0.2);
+    //transition: all 0.08s;
+    //opacity: 0.8;
+    box-shadow: 0.5px 0.5px 4px 0.5px rgba(0, 0, 0, 0.1);
   }
 `
 

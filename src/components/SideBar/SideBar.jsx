@@ -35,6 +35,8 @@ export default class SideBar extends React.Component {
                     value: ''
                 },
             ],
+            isSelectedA: -1,
+            isSelectedB: -1,
         };
         this.btnRef = React.createRef();
         this.handleSelectedImg = this.handleSelectedImg.bind(this);
@@ -69,13 +71,13 @@ export default class SideBar extends React.Component {
     // Button list
     nameOfButtonA = ['Accessories & Bags', 'Appliances', 'Beauty & Toiletries',
         'Food & Fresh', 'Clothing & Shoes', 'Digital', 'Activity', 'Others'];
-    listItemsOfButtonA = this.nameOfButtonA.map((name) =>
-        <SelectButton>{name}</SelectButton>
-    );
+    // listItemsOfButtonA = this.nameOfButtonA.map((name) =>
+    //     <SelectButton>{name}</SelectButton>
+    // );
     nameOfButtonB = ['2160 * 1214', '1214 * 2160'];
-    listItemsOfButtonB = this.nameOfButtonB.map((name) =>
-        <SelectButton>{name}</SelectButton>
-    );
+    // listItemsOfButtonB = this.nameOfButtonB.map((name) =>
+    //     <SelectButton>{name}</SelectButton>
+    // );
     nameOfInput = ['[mainhead]', '[subhead]', '[buttor]',
         '[others]', '[logo]', '[house]', '[sofa]'];
     listItemOfInputOption = this.nameOfInput.map((name) =>
@@ -169,12 +171,30 @@ export default class SideBar extends React.Component {
 
                     <H2 inputTop={"336px"}>Please select a category tab: </H2>
                     <FuncWrapA>
-                        {this.listItemsOfButtonA}
+                        {this.nameOfButtonA.map((name, index) =>
+                            <SelectButton
+                                isSelected={this.state.isSelectedA === index}
+                                onClick={(e, dex= index) => {
+                                    this.setState({isSelectedA: dex});
+                                }}
+                            >
+                                {name}
+                            </SelectButton>
+                        )}
                     </FuncWrapA>
 
                     <H2 inputTop={"514px"}>Please select a size: </H2>
                     <FuncWrapB>
-                        {this.listItemsOfButtonB}
+                        {this.nameOfButtonB.map((name, index) =>
+                            <SelectButton
+                                isSelected={this.state.isSelectedB === index}
+                                onClick={(e, dex= index) => {
+                                    this.setState({isSelectedB: dex});
+                                }}
+                            >
+                                {name}
+                            </SelectButton>
+                        )}
                     </FuncWrapB>
 
                     <H2 inputTop={"600px"}>Please enter text: </H2>
