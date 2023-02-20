@@ -15,27 +15,22 @@ export default class SideBar extends React.Component {
             imgUrl: '',
             itemsValue: [
                 {
-                    text: 'Please enter text here...',
                     key: 'key1',
                     value: ''
                 },
                 {
-                    text: 'Please enter text here...',
                     key: 'key2',
                     value: ''
                 },
                 {
-                    text: 'Please enter text here...',
                     key: 'key3',
                     value: ''
                 },
                 {
-                    text: 'Please enter text here...',
                     key: 'key4',
                     value: ''
                 },
                 {
-                    text: 'Please enter text here...',
                     key: 'key5',
                     value: ''
                 },
@@ -114,7 +109,6 @@ export default class SideBar extends React.Component {
         // console.log(this.itemsValue);
         const tmp = this.state.itemsValue;
         tmp.push({
-            text: 'Please enter text here...',
             key: 'key' + (this.dex++).toString(),
             value: ''
         },);
@@ -199,7 +193,7 @@ export default class SideBar extends React.Component {
                                             {this.listItemOfInputOption}
                                         </SelectInput>
                                         {/*<InputText placeholder={t.text} value={t.value} index={index} onChange={this.handleInputChange}/>*/}
-                                        <InputText placeholder={t.text} value={t.value} index={index} onChange={(e, dex = index) => {
+                                        <InputText placeholder={'Please enter text here...'} value={t.value} index={index} onChange={(e, dex = index) => {
                                             const tmp = this.state.itemsValue;
                                             tmp[dex].value = e.target.value;
                                             // console.log(tmp[dex].value);
