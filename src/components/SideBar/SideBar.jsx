@@ -202,7 +202,7 @@ export default class SideBar extends React.Component {
                                         <InputText placeholder={t.text} value={t.value} index={index} onChange={(e, dex = index) => {
                                             const tmp = this.state.itemsValue;
                                             tmp[dex].value = e.target.value;
-                                            console.log(tmp[dex].value);
+                                            // console.log(tmp[dex].value);
                                             this.setState({itemsValue: tmp});
                                         }}/>
                                     </Box>
