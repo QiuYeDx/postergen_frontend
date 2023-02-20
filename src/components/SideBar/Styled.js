@@ -154,7 +154,7 @@ export const MainButton = styled.div`
     padding: 6px 8px 4px 8px;
     margin-bottom: 40px;
     position: absolute;
-    top: 860px;
+    top: 862px;
     left: 140px;
     width: 180px;
     height: 50px;

@@ -137,11 +137,16 @@ export default class SideBar extends React.Component {
                                         <SelectInput>
                                             {this.listItemOfInputOption}
                                         </SelectInput>
-                                        <InputText placeholder={'Please enter text here...'} value={t.value} index={index} onChange={(e, dex = index) => {
-                                            const tmp = this.state.itemsValue;
-                                            tmp[dex].value = e.target.value;
-                                            this.setState({itemsValue: tmp});
-                                        }}/>
+                                        <InputText
+                                            placeholder={'Please enter text here...'}
+                                            value={t.value}
+                                            index={index}
+                                            onChange={(e, dex = index) => {
+                                                const tmp = this.state.itemsValue;
+                                                tmp[dex].value = e.target.value;
+                                                this.setState({itemsValue: tmp});
+                                            }}
+                                        />
                                     </Box>
                                     <GapErect/>
                                     <SubCircle>
