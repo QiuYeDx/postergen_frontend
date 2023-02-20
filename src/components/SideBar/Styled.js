@@ -99,14 +99,10 @@ export const SelectButton = styled.div`
   background-color: ${props => props.isSelected ? '#1F1A14' : '#f6f6f6'};
   transition: all 0.3s ease;
   :hover {
-    //transition: all 0.15s;
-    //opacity: 0.6;
     transform: translateY(-2px);
     box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.1);
   }
   :active {
-    //transition: all 0.08s;
-    //opacity: 0.8;
     box-shadow: 0.5px 0.5px 4px 0.5px rgba(0, 0, 0, 0.1);
   }
 `
@@ -188,7 +184,6 @@ export const MainButton = styled.div`
 
 export const Wrapper = styled.div`
   position: absolute;
-  //background-color: #bfc;
   top: 640px;
   left: 50px;
   height: 210px;
@@ -198,23 +193,15 @@ export const Wrapper = styled.div`
 `
 
 export const BoxWrapper = styled.div`
-  //position: absolute;
-  //background-color: #bfc;
   padding-top: 2px;
-  //top: 640px;
-  //left: 50px;
-  //height: 200px;
   width: 380px;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
-  //flex-shrink: 0;
-  //flex-basis: 38px;
 `
 
 export const BoxWrap = styled.div`
-  //background-color: #ccc;
   line-height: 32px;
   margin: 0 0 8px 0;
   height: 34px;
@@ -239,13 +226,10 @@ export const Sub = styled.div`
   width: 20px;
   height: 20px;
   background-size: contain;
-  //width: 95%;
-  //height: 100%;
   background-image: url(./sub.svg);    
 `
 
 export const SubWrap = styled.div`
-  //background-color: red;
   position: absolute;
   left: 0;
   right: 0;
@@ -270,20 +254,12 @@ export const SubWrap = styled.div`
 `
 
 export const SubCircle = styled.div`
-  //float: right;
-  //margin-right: 20px;
-  //float: left;
-  //margin-left: 28px;
   position: relative;
   left: 345px;
-  //top: -4px;
   top: -30px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  //background-color: #1a1814;
-  // left: ${props => props.left || '400px'};
-  // top: ${props => props.top || '596px'};
 `
 
 export const SelectInput = styled.select`
@@ -313,7 +289,6 @@ export const GapErect = styled.div`
 
 export const InputText = styled.input`
   position: relative;
-  //top: -4px;
   margin-left: 4px;
   width: 208px;
   height: 16px;
