@@ -68,6 +68,7 @@ export default class SideBar extends React.Component {
             key: 'key' + (this.dex++).toString(),
             value: ''
         },);
+        this.setState({itemsValue: tmp});
     }
 
     render() {
