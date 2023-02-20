@@ -13,19 +13,51 @@ export default class SideBar extends React.Component {
         // this.state = {imgUrl: '', indexOfItems: [1, 2, 3, 4, 5]};
         this.state = {
             imgUrl: '',
-            itemsValue: ['Please enter text here...', 'Please enter text here...',
-                'Please enter text here...', 'Please enter text here...',
-                'Please enter text here...'],
+            itemsValue: [
+                {
+                    text: 'Please enter text here...',
+                    key: 'key1',
+                    value: ''
+                },
+                {
+                    text: 'Please enter text here...',
+                    key: 'key2',
+                    value: ''
+                },
+                {
+                    text: 'Please enter text here...',
+                    key: 'key3',
+                    value: ''
+                },
+                {
+                    text: 'Please enter text here...',
+                    key: 'key4',
+                    value: ''
+                },
+                {
+                    text: 'Please enter text here...',
+                    key: 'key5',
+                    value: ''
+                },
+            ],
         };
         this.btnRef = React.createRef();
         this.handleSelectedImg = this.handleSelectedImg.bind(this);
+        // this.handleInputChange = this.handleInputChange.bind(this);
         this.submitUpload = this.submitUpload.bind(this);
         this.addItemOfInput = this.addItemOfInput.bind(this);
-        this.deleteItemOfInput = this.deleteItemOfInput.bind(this);
+        // this.deleteItemOfInput = this.deleteItemOfInput.bind(this);
     }
     handleSelectedImg(){
         this.btnRef.current.click();
     }
+
+    // handleInputChange(e, dex){
+    //     const tmp = this.state.itemsValue;
+    //     tmp[dex].value = e.target.value;
+    //     console.log(tmp[dex].value);
+    //     this.setState({itemsValue: tmp});
+    // }
 
     submitUpload(e){
         const imgs = e.target.files;
@@ -73,7 +105,7 @@ export default class SideBar extends React.Component {
     //         </SubCircle>
     //     </BoxWrap>
     // );
-    dex = 0;
+    dex = 6;
     addItemOfInput(){
         // this.state.indexOfItems.push(8);
         // console.log(this.state.indexOfItems);
@@ -81,7 +113,11 @@ export default class SideBar extends React.Component {
         // this.itemsValue.push('Please enter text here...');
         // console.log(this.itemsValue);
         const tmp = this.state.itemsValue;
-        tmp.push('Please enter text here...');
+        tmp.push({
+            text: 'Please enter text here...',
+            key: 'key' + (this.dex++).toString(),
+            value: ''
+        },);
         this.setState({itemsValue: tmp});
         // this.setState((state) => ({
         //     itemsValue: this.itemsValue,
@@ -104,12 +140,13 @@ export default class SideBar extends React.Component {
         // );
     }
 
-    deleteItemOfInput(e){
-        const index = e.target.getAttribute('data-index');
-        const lists = this.state.itemsValue;
-        lists.splice(index, 1);
-        this.setState({itemsValue: lists});
-    }
+    // deleteItemOfInput(e){
+    //     const index = e.target.getAttribute('data-index');
+    //     console.log(index);
+    //     const lists = this.state.itemsValue;
+    //     lists.splice(index, 1);
+    //     this.setState({itemsValue: lists});
+    // }
 
     render() {
         return (
@@ -155,17 +192,30 @@ export default class SideBar extends React.Component {
                     <Wrapper>
                         <BoxWrapper>
                             {/*{this.listItemOfInput}*/}
-                            {this.state.itemsValue.map((value, index) =>
+                            {this.state.itemsValue.map((t, index) =>
                                 <BoxWrap>
-                                    <Box>
+                                    <Box key={t.key}>
                                         <SelectInput>
                                             {this.listItemOfInputOption}
                                         </SelectInput>
-                                        <InputText placeholder={value}/>
+                                        {/*<InputText placeholder={t.text} value={t.value} index={index} onChange={this.handleInputChange}/>*/}
+                                        <InputText placeholder={t.text} value={t.value} index={index} onChange={(e, dex = index) => {
+                                            const tmp = this.state.itemsValue;
+                                            tmp[dex].value = e.target.value;
+                                            console.log(tmp[dex].value);
+                                            this.setState({itemsValue: tmp});
+                                        }}/>
                                     </Box>
                                     <GapErect/>
                                     <SubCircle>
-                                        <SubWrap key={this.dex+index} index={index} onClick={this.deleteItemOfInput}>
+                                        {/*<SubWrap index={index} onClick={this.deleteItemOfInput}>*/}
+                                        <SubWrap index={index} onClick={(e, dex = index) => {
+                                            const index = dex;
+                                            // console.log(index);
+                                            const lists = this.state.itemsValue;
+                                            lists.splice(index, 1);
+                                            this.setState({itemsValue: lists});
+                                        }}>
                                             <Sub/>
                                         </SubWrap>
                                     </SubCircle>
